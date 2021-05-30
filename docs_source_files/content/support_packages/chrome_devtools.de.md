@@ -4,11 +4,11 @@ weight: 10
 ---
 
 {{% notice info %}}
-<i class="fas fa-language"></i> Diese Seite wird von Englisch 
-auf Deutsch übersetzt. Sprichst Du Deutsch? Hilf uns die Seite 
+<i class="fas fa-language"></i> Diese Seite wird von Englisch
+auf Deutsch übersetzt. Sprichst Du Deutsch? Hilf uns die Seite
 zu übersetzen indem Du uns einen Pull Reqeust schickst!
 {{% /notice %}}
- 
+
 Selenium 4 alpha versions have much awaited native support for Chrome Dev Protocol through "DevTools" interface. This helps us getting Chrome Development properties such as Application Cache, Fetch, Network, Performance, Profiler, Resource Timing, Security and Target CDP domains etc.
 
 Chrome DevTools is a set of web developer tools built directly into the Google Chrome browser. DevTools can help you edit pages on-the-fly and diagnose problems quickly, which ultimately helps you build better websites, faster.
@@ -60,7 +60,7 @@ namespace dotnet_test {
     public static void Main(string[] args) {
       GeoLocation().GetAwaiter().GetResult();
     }
-        
+
     public static async Task GeoLocation() {
       ChromeDriver driver = new ChromeDriver();
       DevToolsSession devToolsSession = driver.CreateDevToolsSession();
@@ -111,7 +111,7 @@ fun main() {
     coordinates.put("accuracy", 1)
     driver.executeCdpCommand("Emulation.setGeolocationOverride", coordinates)
     driver.get("https://www.google.com")
-} 
+}
   {{< / code-panel >}}
 {{< / code-tab >}}
 
@@ -227,16 +227,16 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v87.log.Log;
 
 public void consoleLogTest() {
-ChromeDriver driver = new ChromeDriver();
-DevTools devTools = driver.getDevTools();
-devTools.createSession();
+    ChromeDriver driver = new ChromeDriver();
+    DevTools devTools = driver.getDevTools();
+    devTools.createSession();
 
     devTools.send(Log.enable());
     devTools.addListener(Log.entryAdded(),
-            logEntry -> {
-                System.out.println("log: "+logEntry.getText());
-                System.out.println("level: "+logEntry.getLevel());
-            });
+        logEntry -> {
+            System.out.println("log: "+logEntry.getText());
+            System.out.println("level: "+logEntry.getLevel());
+        });
 }
   {{< / code-panel >}}
   {{< code-panel language="python" >}}
@@ -273,7 +273,7 @@ public void deviceSimulationTest() {
     ChromeDriver driver = (ChromeDriver) Driver.getDriver();
     tools = driver.getDevTools();
     tools.createSession();
-    
+
     Map deviceMetrics = new HashMap()
     {{
         put("width", 600);
@@ -281,7 +281,7 @@ public void deviceSimulationTest() {
         put("mobile", true);
         put("deviceScaleFactor", 50);
     }};
-        
+
     driver.executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
     driver.get("https://www.google.com");
 }

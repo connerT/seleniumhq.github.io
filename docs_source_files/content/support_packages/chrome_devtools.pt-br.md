@@ -54,7 +54,7 @@ namespace dotnet_test {
     public static void Main(string[] args) {
       GeoLocation().GetAwaiter().GetResult();
     }
-        
+
     public static async Task GeoLocation() {
       ChromeDriver driver = new ChromeDriver();
       DevToolsSession devToolsSession = driver.CreateDevToolsSession();
@@ -220,16 +220,16 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v87.log.Log;
 
 public void consoleLogTest() {
-ChromeDriver driver = new ChromeDriver();
-DevTools devTools = driver.getDevTools();
-devTools.createSession();
+    ChromeDriver driver = new ChromeDriver();
+    DevTools devTools = driver.getDevTools();
+    devTools.createSession();
 
     devTools.send(Log.enable());
     devTools.addListener(Log.entryAdded(),
-            logEntry -> {
-                System.out.println("log: "+logEntry.getText());
-                System.out.println("level: "+logEntry.getLevel());
-            });
+        logEntry -> {
+            System.out.println("log: "+logEntry.getText());
+            System.out.println("level: "+logEntry.getLevel());
+        });
 }
   {{< / code-panel >}}
   {{< code-panel language="python" >}}
@@ -266,7 +266,7 @@ public void deviceSimulationTest() {
     ChromeDriver driver = (ChromeDriver) Driver.getDriver();
     tools = driver.getDevTools();
     tools.createSession();
-    
+
     Map deviceMetrics = new HashMap()
     {{
         put("width", 600);
@@ -274,7 +274,7 @@ public void deviceSimulationTest() {
         put("mobile", true);
         put("deviceScaleFactor", 50);
     }};
-    
+
     driver.executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
     driver.get("https://www.google.com");
 }

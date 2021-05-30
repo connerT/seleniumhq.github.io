@@ -35,10 +35,10 @@ from selenium.webdriver.chrome.service import Service
 def geoLocationTest():
     driver = webdriver.Chrome()
     Map_coordinates = dict({
-        "latitude": 41.8781, 
+        "latitude": 41.8781,
         "longitude": -87.6298,
         "accuracy": 100
-        }) 
+        })
     driver.execute_cdp_cmd("Emulation.setGeolocationOverride", Map_coordinates)
     driver.get("<your site url>")
   {{< / code-panel >}}
@@ -54,7 +54,7 @@ namespace dotnet_test {
     public static void Main(string[] args) {
       GeoLocation().GetAwaiter().GetResult();
     }
-        
+
     public static async Task GeoLocation() {
       ChromeDriver driver = new ChromeDriver();
       DevToolsSession devToolsSession = driver.CreateDevToolsSession();
@@ -226,10 +226,10 @@ public void consoleLogTest() {
 
     devTools.send(Log.enable());
     devTools.addListener(Log.entryAdded(),
-            logEntry -> {
-                System.out.println("log: "+logEntry.getText());
-                System.out.println("level: "+logEntry.getLevel());
-            });
+        logEntry -> {
+            System.out.println("log: "+logEntry.getText());
+            System.out.println("level: "+logEntry.getLevel());
+        });
 }
   {{< / code-panel >}}
   {{< code-panel language="python" >}}
@@ -266,7 +266,7 @@ public void deviceSimulationTest() {
     ChromeDriver driver = (ChromeDriver) Driver.getDriver();
     tools = driver.getDevTools();
     tools.createSession();
-    
+
     Map deviceMetrics = new HashMap()
     {{  
         put("width", 600);
@@ -274,7 +274,7 @@ public void deviceSimulationTest() {
         put("mobile", true);
         put("deviceScaleFactor", 50);
     }};
-    
+
     driver.executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
     driver.get("https://www.google.com");
 }
